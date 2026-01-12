@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>96 Lions Club Chili Sale</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #b11226, #f04b4b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 40px 28px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 28px;
+    }
+
+    .info {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 16px 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    button, a.button-link {
+      border: none;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      display: inline-block;
+      color: #b11226;
+      background: white;
+    }
+
+    button:hover, a.button-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    .footer {
+      margin-top: 26px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🌶️ 96 Lions Club Chili Sale</h1>
+    <div class="subtitle">Support the Lions Club & enjoy great chili!</div>
+
+    <div class="info">
+      📅 <strong>February 27, 2026</strong><br />
+      🕔 Pickup Time: <strong>5:00 PM – 7:00 PM</strong><br /><br />
+
+      📍 <strong>Pickup Location:</strong><br />
+      St. Paul United Methodist Church<br />
+      301 Cambridge St. North<br />
+      Ninety Six, SC
+    </div>
+
+    <div class="price">
+      $15 per quart
+    </div>
+
+    <div class="buttons">
+      <button onclick="downloadCalendar()">➕ Add to Calendar</button>
+      <a
+        class="button-link"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=St.+Paul+United+Methodist+Church+301+Cambridge+St+North+Ninety+Six+SC"
+      >
+        📍 Open in Maps
+      </a>
+    </div>
+
+    <div class="footer">
+      Proceeds support the 96 Lions Club community projects 💛
+    </div>
+  </div>
+
+  <script>
+    function downloadCalendar() {
+      const title = "96 Lions Club Chili Sale Pickup";
+      const location = "St. Paul United Methodist Church, 301 Cambridge St North, Ninety Six, SC";
+      const description = "Pick up your chili from the 96 Lions Club Chili Sale. $15 per quart.";
+
+      // Feb 27, 2026 — 5:00 PM to 7:00 PM Eastern (UTC-5)
+      // 5:00 PM EST = 22:00 UTC
+      // 7:00 PM EST = 00:00 UTC (next day)
+      const start = "20260227T220000Z";
+      const end   = "20260228T000000Z";
+
+      const icsContent =
+`BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${title}
+LOCATION:${location}
+DESCRIPTION:${description}
+DTSTART:${start}
+DTEND:${end}
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "96-lions-club-chili-sale.ics";
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>
