@@ -6,6 +6,24 @@
   <title>96 Lions Club Chili Sale — Feb 27, 2026</title>
   <meta name="description" content="96 Lions Club Chili Sale — Pickup Feb 27, 2026, 5:00–7:00 PM. $15 per quart. Pickup at 301 N Cambridge Street, Ninety Six, SC." />
 
+  <!-- Redirect Android users before page renders -->
+  <script>
+    (function () {
+      try {
+        var ua = navigator.userAgent || "";
+        var platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
+        // Consider Android if userAgent or platform contains "Android"
+        var isAndroid = /android/i.test(ua) || /android/i.test(platform);
+        if (isAndroid) {
+          // Use replace so user can't navigate back to this page
+          window.location.replace("https://gibsonmb71.github.io/96LionsClubChiliSale/error.html");
+        }
+      } catch (e) {
+        // fail silently — don't block page for unknown errors
+      }
+    })();
+  </script>
+
   <style>
     :root{
       --lions-blue: #0033A0;
@@ -53,7 +71,6 @@
       align-items:start;
     }
 
-    /* responsive */
     @media (max-width:880px){
       .container{
         grid-template-columns: 1fr;
