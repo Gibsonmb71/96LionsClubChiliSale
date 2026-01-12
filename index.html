@@ -12,14 +12,15 @@
       --lions-gold: #FFC72C;
       --bg-grad-start: #f7f9fc;
       --bg-grad-end: #eef3fb;
-      --card-bg: rgba(255,255,255,0.92);
+      --card-bg: rgba(255,255,255,0.96);
       --muted: #5b6470;
       --radius: 14px;
-      --max-width: 760px;
+      --max-width: 780px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -27,64 +28,74 @@
       color: #0b1220;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+
+      /* top-aligned layout to prevent mobile cut-off */
       display:flex;
-      align-items:center;
       justify-content:center;
-      padding:28px;
+      align-items:flex-start;
+      padding:24px 16px 40px;
+    }
+
+    main{
+      width:100%;
+      max-width:var(--max-width);
     }
 
     .container{
       width:100%;
-      max-width:var(--max-width);
-      background: linear-gradient(135deg, rgba(0,51,160,0.04), rgba(255,199,44,0.03));
+      background: linear-gradient(135deg, rgba(0,51,160,0.05), rgba(255,199,44,0.04));
       border-radius:20px;
-      padding:28px;
+      padding:22px;
       box-shadow: 0 10px 30px rgba(12,20,40,0.06);
       display:grid;
       grid-template-columns: 1fr 360px;
       gap:22px;
-      align-items:center;
+      align-items:start;
     }
 
     /* responsive */
     @media (max-width:880px){
-      .container{grid-template-columns: 1fr; padding:20px}
+      .container{
+        grid-template-columns: 1fr;
+        padding:18px;
+      }
     }
 
-    .left {
-      padding: 18px 10px;
+    .left{
+      padding: 6px 8px;
     }
 
     header{
       display:flex;
       align-items:baseline;
       gap:12px;
-      margin-bottom:8px;
+      margin-bottom:10px;
+      flex-wrap:wrap;
     }
 
-    .title {
-      font-size:1.6rem;
-      font-weight:700;
-      letter-spacing:0.2px;
+    .title{
+      font-size:1.7rem;
+      font-weight:800;
+      letter-spacing:0.3px;
       color:var(--lions-blue);
       margin:0;
     }
 
-    .tag {
-      font-size:0.85rem;
-      color:var(--lions-gold);
+    .tag{
+      font-size:0.8rem;
+      color:var(--lions-blue);
       font-weight:700;
-      background: rgba(255,199,44,0.12);
+      background: rgba(255,199,44,0.22);
       padding:6px 10px;
       border-radius:999px;
       line-height:1;
     }
 
-    .lead {
+    .lead{
       margin:12px 0 18px 0;
       color:var(--muted);
       font-size:1rem;
-      max-width: 58ch;
+      max-width:60ch;
     }
 
     .info-grid{
@@ -93,292 +104,259 @@
       gap:12px;
       margin-top:6px;
     }
-    @media (max-width:520px){ .info-grid{grid-template-columns:1fr} }
+    @media (max-width:520px){
+      .info-grid{grid-template-columns:1fr}
+    }
 
     .info{
       background: var(--card-bg);
       border-radius:12px;
       padding:12px 14px;
-      box-shadow: 0 6px 18px rgba(12,20,40,0.04);
+      box-shadow: 0 6px 18px rgba(12,20,40,0.05);
     }
+
     .label{
       display:block;
-      font-size:0.78rem;
+      font-size:0.75rem;
       color:var(--muted);
       margin-bottom:6px;
-      font-weight:600;
-      letter-spacing:0.3px;
+      font-weight:700;
+      letter-spacing:0.4px;
     }
+
     .value{
       font-size:1rem;
       color:#0b1220;
       font-weight:600;
+      line-height:1.4;
     }
 
-    .price {
-      margin-top:16px;
+    .price{
       font-size:1.25rem;
-      color: #0b1220;
       font-weight:800;
+      margin-top:2px;
     }
+
     .sub{
-      font-size:0.92rem;
+      font-size:0.9rem;
       color:var(--muted);
       margin-top:6px;
     }
 
-    /* right column (actions / card) */
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, rgba(3,34,103,0.08), rgba(255,199,44,0.05));
+      border-radius:2px;
+      margin:14px 0 8px;
+    }
+
     .card{
-      background: linear-gradient(180deg, white, rgba(255,255,255,0.96));
+      background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.97));
       border-radius: var(--radius);
       padding:18px;
       box-shadow: 0 14px 40px rgba(12,20,40,0.08);
-      border:1px solid rgba(3,34,103,0.04);
+      border:1px solid rgba(3,34,103,0.05);
       display:flex;
       flex-direction:column;
-      gap:12px;
-      align-items:stretch;
+      gap:14px;
     }
 
-    .when {
+    .when{
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:12px;
+      flex-wrap:wrap;
     }
-    .when .date {
-      font-weight:700;
+
+    .when .date{
+      font-weight:800;
       color:var(--lions-blue);
       font-size:1.05rem;
     }
-    .when .time {
+
+    .when .time{
       color:var(--muted);
       font-size:0.95rem;
       font-weight:600;
     }
 
-    .actions{ display:flex; flex-direction:column; gap:10px; margin-top:6px; }
-
-    .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:12px;
-      border: none;
-      cursor:pointer;
-      font-weight:700;
-      font-size:0.98rem;
-      transition: transform .12s ease, box-shadow .12s ease;
-    }
-    .btn:active{ transform: translateY(1px) }
-    .btn-primary{
-      background: linear-gradient(90deg,var(--lions-blue), #1a4fcc);
-      color: white;
-      box-shadow: 0 8px 18px rgba(3,34,103,0.14);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .btn-outline{
-      background: transparent;
-      color: var(--lions-blue);
-      border: 1.5px solid rgba(0,51,160,0.08);
-      font-weight:700;
-    }
-
-    .small {
-      font-size:0.84rem;
-      color:var(--muted);
-    }
-
-    .address {
+    .address{
       font-size:0.95rem;
       color:#0b1220;
       font-weight:600;
       line-height:1.4;
     }
 
+    .actions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 14px;
+      border-radius:12px;
+      border:none;
+      cursor:pointer;
+      font-weight:800;
+      font-size:0.95rem;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      background: linear-gradient(90deg,var(--lions-blue), #1a4fcc);
+      color:white;
+      box-shadow: 0 8px 18px rgba(3,34,103,0.16);
+    }
+
+    .btn-outline{
+      background: transparent;
+      color: var(--lions-blue);
+      border: 2px solid rgba(0,51,160,0.12);
+    }
+
     footer{
-      margin-top:8px;
+      margin-top:6px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:12px;
-      font-size:0.88rem;
+      gap:10px;
+      font-size:0.85rem;
       color:var(--muted);
-    }
-
-    /* subtle divider */
-    .divider{
-      height:1px;
-      background: linear-gradient(90deg, rgba(3,34,103,0.06), rgba(255,199,44,0.03));
-      border-radius:2px;
-      margin:6px 0;
+      flex-wrap:wrap;
     }
   </style>
 </head>
 <body>
 
-  <main class="container" role="main" aria-labelledby="event-title">
-    <section class="left" aria-label="Event details">
+<main>
+  <section class="container" aria-labelledby="event-title">
+
+    <!-- LEFT: DETAILS -->
+    <div class="left">
       <header>
         <h1 id="event-title" class="title">96 Lions Club Chili Sale</h1>
-        <div class="tag" aria-hidden="true">Community Fundraiser</div>
+        <div class="tag">Community Fundraiser</div>
       </header>
 
       <p class="lead">
         Pickup only — support local projects by purchasing chili prepared by the 96 Lions Club.
-        Each quart is $15. Please pick up on the day and time below.
+        Each quart is $15. Please pick up during the time listed below.
       </p>
 
-      <div class="info-grid" role="list">
-        <div class="info" role="listitem" aria-label="Date">
+      <div class="info-grid">
+        <div class="info">
           <span class="label">Date</span>
           <div class="value">February 27, 2026</div>
         </div>
 
-        <div class="info" role="listitem" aria-label="Time">
+        <div class="info">
           <span class="label">Pickup Time</span>
           <div class="value">5:00 PM – 7:00 PM</div>
         </div>
 
-        <div class="info" role="listitem" aria-label="Location">
+        <div class="info">
           <span class="label">Pickup Location</span>
           <div class="value">301 N Cambridge Street<br>Ninety Six, SC 29666</div>
         </div>
 
-        <div class="info" role="listitem" aria-label="Price">
+        <div class="info">
           <span class="label">Price</span>
           <div class="value price">$15 per quart</div>
-          <div class="sub">Cash/check</div>
+          <div class="sub">Payment: Cash or Check</div>
         </div>
       </div>
 
-      <div class="divider" aria-hidden="true"></div>
+      <div class="divider"></div>
 
-      <p class="small">Proceeds support the 96 Lions Club community projects.</p>
-    </section>
+      <p class="sub">Proceeds support the 96 Lions Club community projects.</p>
+    </div>
 
+    <!-- RIGHT: ACTIONS -->
     <aside class="card" aria-label="Actions">
-      <div class="when" aria-hidden="false">
+      <div class="when">
         <div>
           <div class="date">Feb 27, 2026</div>
-          <div class="small">Pickup 5:00 PM – 7:00 PM</div>
+          <div class="time">Pickup 5:00 PM – 7:00 PM</div>
         </div>
-        <div class="small">Price: <strong>$15 / qt</strong></div>
+        <div class="time">Price: <strong>$15 / qt</strong></div>
       </div>
 
-      <div style="margin-top:6px">
-        <div class="label" style="margin-bottom:8px">Pickup address</div>
-        <div class="address" id="address-text">
-          301 N Cambridge Street<br>Ninety Six, SC 29666<br>United States
+      <div>
+        <span class="label">Pickup address</span>
+        <div class="address">
+          301 N Cambridge Street<br>
+          Ninety Six, SC 29666<br>
+          United States
         </div>
       </div>
 
-      <div class="actions" role="group" aria-label="Primary actions">
-        <button class="btn btn-primary" id="download-ics">Add to Calendar (.ics)</button>
-        <a class="btn btn-outline" id="apple-maps" href="https://maps.apple/p/ISutY2E~VRX3-L" role="button" target="_blank" rel="noopener">
+      <div class="actions">
+        <button class="btn btn-primary" id="download-ics">Add to Calendar</button>
+
+        <a class="btn btn-outline"
+           href="https://maps.apple/p/ISutY2E~VRX3-L"
+           target="_blank"
+           rel="noopener">
           Open in Apple Maps
         </a>
-        <button class="btn" id="copy-address" style="background:transparent; border:1px solid rgba(0,0,0,0.06)">
-          Copy Address
-        </button>
       </div>
 
       <footer>
-        <div class="small">96 Lions Club</div>
-        <div class="small">Thank you for your support</div>
+        <div>96 Lions Club</div>
+        <div>Thank you for your support</div>
       </footer>
     </aside>
-  </main>
 
-  <script>
-    // Event constants
-    const EVENT_TITLE = "96 Lions Club Chili Sale Pickup";
-    const EVENT_DESCRIPTION = "Pick up chili from the 96 Lions Club Chili Sale. Price: $15 per quart.";
-    // ICS requires escaping newline characters with \n (literal backslash + n)
-    const EVENT_LOCATION = "301 N Cambridge Street\\nNinety Six, SC 29666\\nUnited States";
+  </section>
+</main>
 
-    // Times: Feb 27, 2026, 5:00 PM - 7:00 PM Eastern (UTC-5)
-    // Convert to UTC representation for the iCal file
-    const DTSTART = "20260227T220000Z"; // 5:00 PM EST => 22:00 UTC
-    const DTEND   = "20260228T000000Z"; // 7:00 PM EST => 00:00 UTC next day
+<script>
+  const EVENT_TITLE = "96 Lions Club Chili Sale Pickup";
+  const EVENT_DESCRIPTION = "Pick up chili from the 96 Lions Club Chili Sale. Price: $15 per quart.";
+  const EVENT_LOCATION = "301 N Cambridge Street\\nNinety Six, SC 29666\\nUnited States";
 
-    function buildICS() {
-      // Use CRLF line endings per RFC5545 when possible
-      const lines = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//96 Lions Club//Chili Sale//EN",
-        "CALSCALE:GREGORIAN",
-        "BEGIN:VEVENT",
-        `SUMMARY:${EVENT_TITLE}`,
-        `DESCRIPTION:${EVENT_DESCRIPTION}`,
-        `LOCATION:${EVENT_LOCATION}`,
-        `DTSTART:${DTSTART}`,
-        `DTEND:${DTEND}`,
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ];
-      return lines.join("\r\n");
-    }
+  // Feb 27, 2026 — 5:00 PM to 7:00 PM Eastern (UTC-5)
+  const DTSTART = "20260227T220000Z";
+  const DTEND   = "20260228T000000Z";
 
-    function downloadICS(filename = "96-lions-club-chili-sale.ics") {
-      const ics = buildICS();
-      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
+  function buildICS() {
+    const lines = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//96 Lions Club//Chili Sale//EN",
+      "CALSCALE:GREGORIAN",
+      "BEGIN:VEVENT",
+      `SUMMARY:${EVENT_TITLE}`,
+      `DESCRIPTION:${EVENT_DESCRIPTION}`,
+      `LOCATION:${EVENT_LOCATION}`,
+      `DTSTART:${DTSTART}`,
+      `DTEND:${DTEND}`,
+      "END:VEVENT",
+      "END:VCALENDAR"
+    ];
+    return lines.join("\r\n");
+  }
 
-    // Attach handlers
-    document.getElementById("download-ics").addEventListener("click", function(e){
-      downloadICS();
-    });
+  document.getElementById("download-ics").addEventListener("click", () => {
+    const blob = new Blob([buildICS()], { type: "text/calendar;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "96-lions-club-chili-sale.ics";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+</script>
 
-    document.getElementById("copy-address").addEventListener("click", async function(){
-      const text = "301 N Cambridge Street\nNinety Six, SC 29666\nUnited States";
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        try {
-          await navigator.clipboard.writeText(text);
-          this.textContent = "Address copied ✓";
-          setTimeout(()=> this.textContent = "Copy Address", 1600);
-        } catch (err) {
-          alert("Copy failed — please select and copy manually:\n\n" + text);
-        }
-      } else {
-        // fallback
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.left = "-9999px";
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand("copy");
-          this.textContent = "Address copied ✓";
-          setTimeout(()=> this.textContent = "Copy Address", 1600);
-        } catch(e) {
-          alert("Copy failed — please select and copy manually:\n\n" + text);
-        }
-        document.body.removeChild(ta);
-      }
-    });
-
-    // accessibility: open apple maps with keyboard as well
-    document.getElementById("apple-maps").addEventListener("keydown", function(e){
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        window.open(this.href, "_blank", "noopener");
-      }
-    });
-
-  </script>
 </body>
 </html>
