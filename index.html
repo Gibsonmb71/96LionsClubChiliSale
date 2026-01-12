@@ -14,53 +14,62 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #b11226, #f04b4b);
+      background: linear-gradient(135deg, #8c0f1f, #d64545);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      text-align: center;
-      padding: 20px;
+      padding: 24px;
     }
 
     .card {
-      background: rgba(0,0,0,0.25);
-      backdrop-filter: blur(8px);
-      border-radius: 24px;
-      padding: 40px 28px;
-      max-width: 520px;
+      background: rgba(0,0,0,0.28);
+      backdrop-filter: blur(10px);
+      border-radius: 22px;
+      padding: 42px 32px;
+      max-width: 560px;
       width: 100%;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+      font-size: 2.3rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
     }
 
     .subtitle {
-      font-size: 1.1rem;
-      opacity: 0.95;
-      margin-bottom: 28px;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
     }
 
-    .info {
-      font-size: 1.05rem;
+    .section {
+      margin-bottom: 22px;
       line-height: 1.6;
-      margin-bottom: 28px;
+      font-size: 1.05rem;
+    }
+
+    .label {
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      display: block;
+      margin-bottom: 4px;
+      opacity: 0.95;
     }
 
     .price {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      margin: 16px 0;
+      margin: 26px 0 10px;
     }
 
     .buttons {
       display: flex;
       flex-direction: column;
       gap: 14px;
-      margin-top: 30px;
+      margin-top: 26px;
     }
 
     button, a.button-link {
@@ -73,7 +82,7 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       text-decoration: none;
       display: inline-block;
-      color: #b11226;
+      color: #8c0f1f;
       background: white;
     }
 
@@ -83,7 +92,7 @@
     }
 
     .footer {
-      margin-top: 26px;
+      margin-top: 28px;
       font-size: 0.9rem;
       opacity: 0.85;
     }
@@ -92,16 +101,23 @@
 <body>
 
   <div class="card">
-    <h1>🌶️ 96 Lions Club Chili Sale</h1>
-    <div class="subtitle">Support the Lions Club & enjoy great chili!</div>
+    <h1>96 Lions Club Chili Sale</h1>
+    <div class="subtitle">Supporting local community projects</div>
 
-    <div class="info">
-      📅 <strong>February 27, 2026</strong><br />
-      🕔 Pickup Time: <strong>5:00 PM – 7:00 PM</strong><br /><br />
+    <div class="section">
+      <span class="label">Date</span>
+      February 27, 2026
+    </div>
 
-      📍 <strong>Pickup Location:</strong><br />
-      St. Paul United Methodist Church<br />
-      301 Cambridge St. North<br />
+    <div class="section">
+      <span class="label">Pickup Time</span>
+      5:00 PM – 7:00 PM
+    </div>
+
+    <div class="section">
+      <span class="label">Pickup Location</span>
+      St. Paul United Methodist Church<br>
+      301 Cambridge St. North<br>
       Ninety Six, SC
     </div>
 
@@ -110,32 +126,30 @@
     </div>
 
     <div class="buttons">
-      <button onclick="downloadCalendar()">➕ Add to Calendar</button>
+      <button onclick="downloadCalendar()">Add to Calendar</button>
       <a
         class="button-link"
         target="_blank"
-        href="https://www.google.com/maps/search/?api=1&query=St.+Paul+United+Methodist+Church+301+Cambridge+St+North+Ninety+Six+SC"
+        href="https://maps.apple/p/ISutY2E~VRX3-L"
       >
-        📍 Open in Maps
+        Open in Apple Maps
       </a>
     </div>
 
     <div class="footer">
-      Proceeds support the 96 Lions Club community projects 💛
+      Thank you for supporting the 96 Lions Club
     </div>
   </div>
 
   <script>
     function downloadCalendar() {
       const title = "96 Lions Club Chili Sale Pickup";
-      const location = "St. Paul United Methodist Church, 301 Cambridge St North, Ninety Six, SC";
-      const description = "Pick up your chili from the 96 Lions Club Chili Sale. $15 per quart.";
+      const location = "St. Paul United Methodist Church, 301 Cambridge St North, Ninety Six, SC 29666";
+      const description = "Pick up chili from the 96 Lions Club Chili Sale. Price: $15 per quart.";
 
       // Feb 27, 2026 — 5:00 PM to 7:00 PM Eastern (UTC-5)
-      // 5:00 PM EST = 22:00 UTC
-      // 7:00 PM EST = 00:00 UTC (next day)
-      const start = "20260227T220000Z";
-      const end   = "20260228T000000Z";
+      const start = "20260227T220000Z"; // 5:00 PM EST
+      const end   = "20260228T000000Z"; // 7:00 PM EST
 
       const icsContent =
 `BEGIN:VCALENDAR
